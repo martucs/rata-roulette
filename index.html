@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>¿QUÉ RATA ERES? 🐀</title>
+  <link rel="icon" type="png" href="https://img.icons8.com/color/96/mouse-animal.png">
+  <title>¿Qué rata eres?</title>
   <link href="https://fonts.googleapis.com/css2?family=Impact&family=Comic+Sans+MS&family=Verdana&display=swap" rel="stylesheet"/>
   <style>
     /* =============================================
@@ -544,6 +545,8 @@
       <div class="status-cell" id="status-coords">Para ayuda, pulse F1</div>
       <div class="status-cell" id="status-size">340x260</div>
       <div class="status-cell">🐀 RATA_DETECT.EXE</div>
+      <div class="status-cell" id="status-visits">Visitas: </div>
+      
     </div>
 
     <!-- Colour Palette -->
@@ -789,7 +792,19 @@
       document.getElementById('status-coords').textContent = `${x}, ${y}px`;
     });
 
-    window.onload = () => revealRat({});
+
+    function updateVisitorCount() {
+      fetch('https://api.countapi.xyz/hit/tu-web-ratas/visitas')
+      .then(res => res.json())
+      .then(res => {
+        document.getElementById('status-visits').textContent = `Visitas: ${res.value}`;
+      });
+    }
+
+    window.onload = () => {
+      revealRat({});
+      updateVisitorCount();
+    };
   </script>
 </body>
 </html>
