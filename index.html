@@ -794,10 +794,15 @@
 
 
     function updateVisitorCount() {
-      fetch('https://api.countapi.xyz/hit/tu-web-ratas/visitas')
-      .then(res => res.json())
-      .then(res => {
-        document.getElementById('status-visits').textContent = `Visitas: ${res.value}`;
+      fetch('https://bcnomemultesplis.goatcounter.com/counter/TOTAL.json')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('status-visits').textContent =
+        `👁️ ${data.count} visitas`;
+      })
+      .catch(() => {
+        document.getElementById('status-visits').textContent =
+        'Visitas: ???';
       });
     }
 
@@ -806,5 +811,7 @@
       updateVisitorCount();
     };
   </script>
+  <script data-goatcounter="https://bcnomemultesplis.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
