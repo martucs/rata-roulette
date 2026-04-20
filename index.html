@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="png" href="https://img.icons8.com/color/96/mouse-animal.png">
   <title>¿Qué rata eres?</title>
-  <link href="https://fonts.googleapis.com/css2?family=Impact&family=Comic+Sans+MS&family=Verdana&display=swap" rel="stylesheet"/>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Impact&family=Comic+Sans+MS&family=Verdana&display=swap" rel="stylesheet"/> -->
   <style>
     /* =============================================
        MS PAINT / WORDART AESTHETIC
@@ -792,18 +792,16 @@
       document.getElementById('status-coords').textContent = `${x}, ${y}px`;
     });
 
-
     function updateVisitorCount() {
-      fetch('https://bcnomemultesplis.goatcounter.com/counter/TOTAL.json')
-      .then(r => r.json())
-      .then(data => {
-        document.getElementById('status-visits').textContent =
-        `👁️ ${data.count} visitas`;
-      })
-      .catch(() => {
-        document.getElementById('status-visits').textContent =
-        'Visitas: ???';
+      let r = new XMLHttpRequest();
+      
+      r.addEventListener('load', function() {
+        const data = JSON.parse(this.responseText);
+        document.getElementById('status-visits').textContent = `👁️ ${data.count} visitas humanas detectadas`;
       });
+      
+      r.open('GET', 'https://bcnomemultesplis.goatcounter.com/counter/TOTAL.json');
+      r.send();
     }
 
     window.onload = () => {
@@ -811,7 +809,5 @@
       updateVisitorCount();
     };
   </script>
-  <script data-goatcounter="https://bcnomemultesplis.goatcounter.com/count"
-    async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
