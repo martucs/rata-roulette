@@ -451,6 +451,87 @@
         margin: 16px auto;
       }
     }
+
+    /* CONTACT WINDOW */
+
+    .contact-window {
+      position: relative;
+      z-index: 5;
+      max-width: 680px;
+      margin: 0 auto 20px;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .contact-content {
+      background: #d8ecd8;
+      margin: 6px;
+      padding: 14px;
+      border: 2px inset #808080;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+      color: #000080;
+    }
+
+    .contact-title {
+      font-family: Impact, sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #cc0000;
+      text-shadow: 1px 1px 0 #fff;
+      letter-spacing: 1px;
+    }
+
+    .contact-mail {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .contact-mail a {
+      color: #0000ff;
+      background: #ffff00;
+      padding: 2px 6px;
+      border: 1px solid #000;
+      text-decoration: none;
+    }
+
+    .contact-mail a:hover {
+      background: #ff00ff;
+      color: white;
+    }
+
+    .contact-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .contact-sticker {
+      font-family: Impact, sans-serif;
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border: 2px solid #000;
+      background: #ffff00;
+      transform: rotate(-2deg);
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .contact-sticker:nth-child(2) {
+      background: #00ff00;
+      transform: rotate(2deg);
+    }
+
+    .contact-sticker:nth-child(3) {
+      background: #ff69b4;
+      transform: rotate(-1deg);
+    }
+
   </style>
 </head>
 <body>
@@ -571,6 +652,41 @@
       <div class="pal-color" style="background:#ff69b4" onclick="setPal(this)"></div>
     </div>
   </div>
+
+<!-- CONTACT WINDOW -->
+<div class="contact-window">
+  <div class="win-titlebar">
+    <div class="title-left">
+      <span>📧</span>
+      <span>contacto.txt</span>
+    </div>
+
+    <div class="win-btns">
+      <div class="win-btn">_</div>
+      <div class="win-btn">□</div>
+      <div class="win-btn" style="color:red;">✕</div>
+    </div>
+  </div>
+
+  <div class="contact-content">
+    <p class="contact-title"> CONTACTO OFICIAL DE RATAS™ </p>
+
+    <p>
+      ¿Quieres enviar nuevas ratas, reclamar una multa, denunciar
+      comportamiento sospechoso o mostrar tu apreciación por esta maravillosa página web?
+    </p>
+
+    <p class="contact-mail">
+      Escríbenos en: <a href="mailto:ratamail@gmail.com">ratamail@gmail.com</a>
+    </p>
+
+    <div class="contact-badges">
+      <span class="contact-sticker">100% REAL</span>
+      <span class="contact-sticker">NO FAKE RATAS</span>
+      <span class="contact-sticker">MS PAINT CERTIFIED</span>
+    </div>
+  </div>
+</div>
 
   <script>
     const rats = [
